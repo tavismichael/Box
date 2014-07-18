@@ -1,0 +1,721 @@
+$ ETA/DYNAFORM : DYNA3D(971) INPUT DECK
+$ DATE : May 20, 2010 at 19:52:12
+$ EXPORTER : AUTO-SETUP
+$
+$ VIEWING INFORMATION
+$    -69.73128    69.73128   -46.78586    46.98481
+$          1.0         0.0         0.0
+$          0.0         0.0         1.0
+$          0.0        -1.0         0.0
+$
+$ UNIT SYSTEM : MM, TON, SEC, N
+$
+$ SIMULATION  : SHEET FORMING
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+*KEYWORD_ID
+28                                      
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (1) TITLE CARD
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*TITLE
+untitled
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (2) CONTROL CARDS
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*CONTROL_TERMINATION
+$   ENDTIM    ENDCYC     DTMIN    ENDNEG    ENDMAS
+ 0.0046790         0                           0.0
+*CONTROL_TIMESTEP
+$   DTINIT    TSSFAC      ISDO    TSLIMT     DT2MS      LCTM     ERODE     MS1ST
+       0.0       0.9         0       0.0-1.200E-06
+*CONTROL_RIGID
+$      LMF      JNTF    ORTHMD     PARTM    SPARSE    METALF
+                                                           1
+*CONTROL_HOURGLASS
+$      IHQ        QH
+         4       0.1
+*CONTROL_BULK_VISCOSITY
+$       Q1        Q2      TYPE
+       1.5      0.06         1
+*CONTROL_SHELL
+$   WRPANG     ESORT     IRNXX    ISTUPD    THEORY       BWC     MITER      PROJ
+      20.0         1        -1         1         2         2         1         0
+$  ROTASCL    INTGRD    LAMSHT    CSTYP6    TSHELL    NFAIL1    NFAIL4
+
+$  PSSTUPD    IRQUAD
+
+*CONTROL_CONTACT
+$   SLSFAC    RWPNAL    ISLCHK    SHLTHK    PENOPT    THKCHG     ORIEN
+       0.1       0.0         2         1         4         0         1
+$   USRSTR    USRFAC     NSBCS    INTERM     XPENE     SSTHK      ECDT   TIEDPRJ
+         0         0        10         0       4.0         0
+*CONTROL_ENERGY
+$     HGEN      RWEN    SLNTEN     RYLEN
+         2         1         2         1
+*CONTROL_OUTPUT
+$    NPOPT    NEECHO    NREFUP    IACCOP     OPIFS    IPNINT    IKEDIT
+         1         0         0         0       0.0         0       100
+*CONTROL_PARALLEL
+$     NCPU    NUMRHS     CONST
+         1         0         2
+*CONTROL_ACCURACY
+$      OSU       INN
+         0         1
+*CONTROL_ADAPTIVE
+$  ADPFREQ    ADPTOL    ADPOPT    MAXLVL    TBIRTH    TDEATH     LCADP    IOFLAG
+ 1.169E-04       5.0         2         3       0.0 1.000E+20                   1
+$  ADPSIZE    ADPASS    IREFLG    ADPENE     ADPTH    MEMORY    ORIENT     MAXEL
+       1.0         1         0       1.0      -0.5                   0         0
+$  IADPE90              NCFREQ    IADPCL    ADPCTL    CBIRTH    CDEATH
+        -1                   0         1       0.0       0.0 1.000E+20
+*CONTROL_ADAPSTEP
+$   FACTIN    DFACTR
+       1.0      0.01
+*INTERFACE_SPRINGBACK_LSDYNA
+$     PSID
+         1
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$*DATABASE_OPTION
+$       DT    BINARY
+$OPTION : SECFORC RWFORC NODOUT ELOUT  GLSTAT
+$         DEFORC  MATSUM NCFORC RCFORC DEFGEO
+$         SPCFORC SWFORC ABSTAT NODFOR BNDOUT
+$         RBDOUT  GCEOUT SLEOUT MPGS   SBTOUT
+$         JNTFORC AVSFLT MOVIE
+*DATABASE_MATSUM
+ 3.119E-04
+*DATABASE_GLSTAT
+ 3.119E-04
+*DATABASE_RCFORC
+ 3.119E-04         3
+*DATABASE_SLEOUT
+ 3.119E-04
+*DATABASE_RBDOUT
+ 3.119E-04
+*DATABASE_BNDOUT
+ 3.119E-04
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*DATABASE_BINARY_D3PLOT
+$  DT/CYCL      LCDT      BEAM
+                   1
+*DATABASE_EXTENT_BINARY
+$    NEIPH     NEIPS    MAXINT    STRFLG    SIGFLG    EPSFLG    RLTFLG    ENGFLG
+                             5         1
+$   CMPFLG    IEVERP    BEAMIP     DCOMP      SHGE     STSSZ
+                   1                   2
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (3) DEFINE BLANK
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*SET_PART_LIST
+$SET_PART_NAME: BLANK
+$      SID       DA1       DA2       DA3       DA4
+         1
+$     PID1      PID2      PID3      PID4      PID5      PID6      PID7      PID8
+         4
+*PART
+$HEADING
+ PART PID =        4 PART NAME :BLANK   
+$      PID     SECID       MID     EOSID      HGID      GRAV    ADPOPT      TMID
+         4         1         1                                       1
+*MAT_3-PARAMETER_BARLAT
+$MATERIAL NAME:SPHC
+$      MID        RO         E        PR        HR        P1        P2
+         1 7.850E-09 2.070E+05      0.28       3.0     495.1      0.23
+$        M       R00       R45       R90      LCID        E0       SPI
+       6.0     1.997     1.875     2.504         2       0.0       0.0
+$     AOPT
+       2.0
+$       XP        YP        ZP        A1        A2        A3
+                                     1.0       0.0       0.0
+$       V1        V2        V3        D1        D2        D3
+                                     0.0       1.0       0.0
+*SECTION_SHELL
+$      SID    ELFORM      SHRF       NIP     PROPT   QR/IRID     ICOMP     SETYP
+         1         2     0.833       5.0       1.0
+$       T1        T2        T3        T4      NLOC
+       1.4       1.4       1.4       1.4
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (4) DEFINE TOOLS
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$                    TOOL < 10_punch >
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*SET_PART_LIST
+$SET_PART_NAME: 10_punch
+$      SID       DA1       DA2       DA3       DA4
+         2
+$     PID1      PID2      PID3      PID4      PID5      PID6      PID7      PID8
+         1
+*PART
+$HEADING
+ PART PID =        1 PART NAME :PUNCH   
+$      PID     SECID       MID     EOSID      HGID      GRAV    ADPOPT      TMID
+         1         2         2                                        
+*MAT_RIGID
+$      MID        RO         E        PR         N    COUPLE         M     ALIAS
+         2 7.830E-09 2.070E+05      0.28
+$      CMO      CON1      CON2
+         1         4         7
+$LCO or A1        A2        A3        V1        V2        V3
+
+*SECTION_SHELL
+$      SID    ELFORM      SHRF       NIP     PROPT   QR/IRID     ICOMP     SETYP
+         2         2       1.0       3.0       0.0
+$       T1        T2        T3        T4      NLOC
+       1.0       1.0       1.0       1.0
+*CONTACT_FORMING_ONE_WAY_SURFACE_TO_SURFACE_ID
+$      CID  CONTACT INTERFACE TITLE
+         1  BLANK/10_punch
+$     SSID      MSID     SSTYP     MSTYP    SBOXID    MBOXID       SPR       MPR
+         1         2         2         2                             1         1
+$       FS        FD        DC        VC       VDC    PENCHK        BT        DT
+     0.125       0.0       0.0       0.0      20.0         0 9.000E-04 1.000E+20
+$      SFS       SFM       SST       MST      SFST      SFMT       FSF       VSF
+       1.0       1.0       0.0    -0.001
+$     SOFT    SOFSCL    LCIDAB    MAXPAR    PENTOL     DEPTH     BSORT    FRCFRQ
+         0
+$   PENMAX    THKOPT    SHLTHK     SNLOG      ISYM     I2D3D    SLDTHK    SLDSTF
+                                       1
+$     IGAP    IGNORE    DPRFAC    DTSTIF                        FLANGL
+
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$                    TOOL < 10_die >
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*SET_PART_LIST
+$SET_PART_NAME: 10_die
+$      SID       DA1       DA2       DA3       DA4
+         3
+$     PID1      PID2      PID3      PID4      PID5      PID6      PID7      PID8
+         2
+*PART
+$HEADING
+ PART PID =        2 PART NAME :DIE     
+$      PID     SECID       MID     EOSID      HGID      GRAV    ADPOPT      TMID
+         2         3         3                                        
+*MAT_RIGID
+$      MID        RO         E        PR         N    COUPLE         M     ALIAS
+         3 7.830E-09 2.070E+05      0.28
+$      CMO      CON1      CON2
+         1         4         7
+$LCO or A1        A2        A3        V1        V2        V3
+
+*SECTION_SHELL
+$      SID    ELFORM      SHRF       NIP     PROPT   QR/IRID     ICOMP     SETYP
+         3         2       1.0       3.0       0.0
+$       T1        T2        T3        T4      NLOC
+       1.0       1.0       1.0       1.0
+*CONTACT_FORMING_ONE_WAY_SURFACE_TO_SURFACE_ID
+$      CID  CONTACT INTERFACE TITLE
+         2  BLANK/10_die
+$     SSID      MSID     SSTYP     MSTYP    SBOXID    MBOXID       SPR       MPR
+         1         3         2         2                             1         1
+$       FS        FD        DC        VC       VDC    PENCHK        BT        DT
+     0.125       0.0       0.0       0.0      20.0         0       0.0 1.000E+20
+$      SFS       SFM       SST       MST      SFST      SFMT       FSF       VSF
+       1.0       1.0       0.0    -0.001
+$     SOFT    SOFSCL    LCIDAB    MAXPAR    PENTOL     DEPTH     BSORT    FRCFRQ
+         0
+$   PENMAX    THKOPT    SHLTHK     SNLOG      ISYM     I2D3D    SLDTHK    SLDSTF
+                                       1
+$     IGAP    IGNORE    DPRFAC    DTSTIF                        FLANGL
+
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$                    TOOL < 10_binder >
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*SET_PART_LIST
+$SET_PART_NAME: 10_binder
+$      SID       DA1       DA2       DA3       DA4
+         4
+$     PID1      PID2      PID3      PID4      PID5      PID6      PID7      PID8
+         3
+*PART
+$HEADING
+ PART PID =        3 PART NAME :BINDER  
+$      PID     SECID       MID     EOSID      HGID      GRAV    ADPOPT      TMID
+         3         4         4                                        
+*MAT_RIGID
+$      MID        RO         E        PR         N    COUPLE         M     ALIAS
+         4 7.830E-09 2.070E+05      0.28
+$      CMO      CON1      CON2
+         1         4         7
+$LCO or A1        A2        A3        V1        V2        V3
+
+*SECTION_SHELL
+$      SID    ELFORM      SHRF       NIP     PROPT   QR/IRID     ICOMP     SETYP
+         4         2       1.0       3.0       0.0
+$       T1        T2        T3        T4      NLOC
+       1.0       1.0       1.0       1.0
+*CONTACT_FORMING_ONE_WAY_SURFACE_TO_SURFACE_ID
+$      CID  CONTACT INTERFACE TITLE
+         3  BLANK/10_binder
+$     SSID      MSID     SSTYP     MSTYP    SBOXID    MBOXID       SPR       MPR
+         1         4         2         2                             1         1
+$       FS        FD        DC        VC       VDC    PENCHK        BT        DT
+     0.125       0.0       0.0       0.0      20.0         0       0.0 1.000E+20
+$      SFS       SFM       SST       MST      SFST      SFMT       FSF       VSF
+       1.0       1.0       0.0    -0.001
+$     SOFT    SOFSCL    LCIDAB    MAXPAR    PENTOL     DEPTH     BSORT    FRCFRQ
+         0
+$   PENMAX    THKOPT    SHLTHK     SNLOG      ISYM     I2D3D    SLDTHK    SLDSTF
+                                       1
+$     IGAP    IGNORE    DPRFAC    DTSTIF                        FLANGL
+
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (5) DEFINE PROCESS STEPS
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$                    STEP < closing >
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$10_die : stationary
+*BOUNDARY_PRESCRIBED_MOTION_RIGID
+$   typeID       DOF       VAD      LCID        SF       VID     DEATH     BIRTH
+         2         3         0         3      -1.0         0 9.000E-04       0.0
+$10_binder : velocity
+*BOUNDARY_PRESCRIBED_MOTION_RIGID
+$   typeID       DOF       VAD      LCID        SF       VID     DEATH     BIRTH
+         3         3         0         4       1.0         0 9.000E-04       0.0
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$                    STEP < drawing >
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$10_punch : velocity
+*BOUNDARY_PRESCRIBED_MOTION_RIGID
+$   typeID       DOF       VAD      LCID        SF       VID     DEATH     BIRTH
+         1         3         0         5       1.0         0 0.0046790 9.000E-04
+$10_die : stationary
+*BOUNDARY_PRESCRIBED_MOTION_RIGID
+$   typeID       DOF       VAD      LCID        SF       VID     DEATH     BIRTH
+         2         3         0         6      -1.0         0 0.0046790 9.000E-04
+$10_binder : force
+*LOAD_RIGID_BODY
+$      PID       DOF      LCID        SF       CID        M1        M2        M3
+         3         3         7       1.0         0
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (6) DEFINE CURVES
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*DEFINE_CURVE
+$D3PLOT
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         1         0                                        
+$                 A1                  O1
+    0.0000000000E+00    1.8000015497E-04
+    1.8000015497E-04    1.8000015497E-04
+    3.6000030994E-04    1.8000015497E-04
+    5.4000046492E-04    1.8000015497E-04
+    7.2000061989E-04    1.8000015497E-04
+    9.0000077486E-04    4.4651435643E-04
+    1.3465151313E-03    4.4651435643E-04
+    1.7930294877E-03    4.4651435643E-04
+    2.2395438442E-03    4.4651435643E-04
+    2.6860582006E-03    4.4651435643E-04
+    3.1325725570E-03    4.4651435643E-04
+    3.5790869134E-03    2.3378132852E-04
+    3.8128682420E-03    2.3378132852E-04
+    4.0466495705E-03    3.1622314453E-04
+    4.3628727150E-03    3.1622314453E-04
+    4.6790958595E-03    3.1622314453E-04
+*DEFINE_CURVE
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         2         0                                        
+$                 A1                  O1
+    0.0000000000E+00    1.3527000000E+02
+    2.0000000000E-03    1.4992000000E+02
+    4.0000000000E-03    1.6092000000E+02
+    6.0000000000E-03    1.6986000000E+02
+    8.0000000000E-03    1.7746000000E+02
+    1.0000000000E-02    1.8410000000E+02
+    1.2000000000E-02    1.9002000000E+02
+    1.4000000000E-02    1.9539000000E+02
+    1.6000000000E-02    2.0030000000E+02
+    1.8000000000E-02    2.0484000000E+02
+    2.0000000000E-02    2.0906000000E+02
+    2.2000000000E-02    2.1302000000E+02
+    2.4000000000E-02    2.1674000000E+02
+    2.6000000000E-02    2.2026000000E+02
+    2.8000000000E-02    2.2361000000E+02
+    3.0000000000E-02    2.2679000000E+02
+    3.2000000000E-02    2.2983000000E+02
+    3.4000000000E-02    2.3274000000E+02
+    3.6000000000E-02    2.3554000000E+02
+    3.8000000000E-02    2.3823000000E+02
+    4.0000000000E-02    2.4082000000E+02
+    4.2000000000E-02    2.4332000000E+02
+    4.4000000000E-02    2.4573000000E+02
+    4.6000000000E-02    2.4807000000E+02
+    4.8000000000E-02    2.5034000000E+02
+    5.0000000000E-02    2.5254000000E+02
+    5.2000000000E-02    2.5468000000E+02
+    5.4000000000E-02    2.5676000000E+02
+    5.6000000000E-02    2.5879000000E+02
+    5.8000000000E-02    2.6076000000E+02
+    6.0000000000E-02    2.6269000000E+02
+    6.2000000000E-02    2.6457000000E+02
+    6.4000000000E-02    2.6640000000E+02
+    6.6000000000E-02    2.6819000000E+02
+    6.8000000000E-02    2.6995000000E+02
+    7.0000000000E-02    2.7167000000E+02
+    7.2000000000E-02    2.7335000000E+02
+    7.4000000000E-02    2.7500000000E+02
+    7.6000000000E-02    2.7661000000E+02
+    7.8000000000E-02    2.7820000000E+02
+    8.0000000000E-02    2.7975000000E+02
+    8.2000000000E-02    2.8128000000E+02
+    8.4000000000E-02    2.8278000000E+02
+    8.6000000000E-02    2.8425000000E+02
+    8.8000000000E-02    2.8570000000E+02
+    9.0000000000E-02    2.8712000000E+02
+    9.2000000000E-02    2.8852000000E+02
+    9.4000000000E-02    2.8990000000E+02
+    9.6000000000E-02    2.9125000000E+02
+    9.8000000000E-02    2.9259000000E+02
+    1.0000000000E-01    2.9391000000E+02
+    1.0200000000E-01    2.9520000000E+02
+    1.0400000000E-01    2.9648000000E+02
+    1.0600000000E-01    2.9774000000E+02
+    1.0800000000E-01    2.9898000000E+02
+    1.1000000000E-01    3.0020000000E+02
+    1.1200000000E-01    3.0141000000E+02
+    1.1400000000E-01    3.0260000000E+02
+    1.1600000000E-01    3.0378000000E+02
+    1.1800000000E-01    3.0494000000E+02
+    1.2000000000E-01    3.0609000000E+02
+    1.2200000000E-01    3.0722000000E+02
+    1.2400000000E-01    3.0834000000E+02
+    1.2600000000E-01    3.0945000000E+02
+    1.2800000000E-01    3.1054000000E+02
+    1.3000000000E-01    3.1162000000E+02
+    1.3200000000E-01    3.1268000000E+02
+    1.3400000000E-01    3.1374000000E+02
+    1.3600000000E-01    3.1478000000E+02
+    1.3800000000E-01    3.1582000000E+02
+    1.4000000000E-01    3.1684000000E+02
+    1.4200000000E-01    3.1785000000E+02
+    1.4400000000E-01    3.1885000000E+02
+    1.4600000000E-01    3.1983000000E+02
+    1.4800000000E-01    3.2081000000E+02
+    1.5000000000E-01    3.2178000000E+02
+    1.5200000000E-01    3.2274000000E+02
+    1.5400000000E-01    3.2369000000E+02
+    1.5600000000E-01    3.2463000000E+02
+    1.5800000000E-01    3.2556000000E+02
+    1.6000000000E-01    3.2649000000E+02
+    1.6200000000E-01    3.2740000000E+02
+    1.6400000000E-01    3.2831000000E+02
+    1.6600000000E-01    3.2920000000E+02
+    1.6800000000E-01    3.3009000000E+02
+    1.7000000000E-01    3.3097000000E+02
+    1.7200000000E-01    3.3185000000E+02
+    1.7400000000E-01    3.3271000000E+02
+    1.7600000000E-01    3.3357000000E+02
+    1.7800000000E-01    3.3442000000E+02
+    1.8000000000E-01    3.3526000000E+02
+    1.8200000000E-01    3.3610000000E+02
+    1.8400000000E-01    3.3693000000E+02
+    1.8600000000E-01    3.3775000000E+02
+    1.8800000000E-01    3.3857000000E+02
+    1.9000000000E-01    3.3938000000E+02
+    1.9200000000E-01    3.4018000000E+02
+    1.9400000000E-01    3.4098000000E+02
+    1.9600000000E-01    3.4177000000E+02
+    1.9800000000E-01    3.4256000000E+02
+    2.0000000000E-01    3.4334000000E+02
+    2.0200000000E-01    3.4411000000E+02
+    2.0400000000E-01    3.4488000000E+02
+    2.0600000000E-01    3.4564000000E+02
+    2.0800000000E-01    3.4639000000E+02
+    2.1000000000E-01    3.4714000000E+02
+    2.1200000000E-01    3.4789000000E+02
+    2.1400000000E-01    3.4863000000E+02
+    2.1600000000E-01    3.4936000000E+02
+    2.1800000000E-01    3.5009000000E+02
+    2.2000000000E-01    3.5082000000E+02
+    2.2200000000E-01    3.5154000000E+02
+    2.2400000000E-01    3.5225000000E+02
+    2.2600000000E-01    3.5296000000E+02
+    2.2800000000E-01    3.5367000000E+02
+    2.3000000000E-01    3.5437000000E+02
+    2.3200000000E-01    3.5506000000E+02
+    2.3400000000E-01    3.5575000000E+02
+    2.3600000000E-01    3.5644000000E+02
+    2.3800000000E-01    3.5712000000E+02
+    2.4000000000E-01    3.5780000000E+02
+    2.4200000000E-01    3.5847000000E+02
+    2.4400000000E-01    3.5914000000E+02
+    2.4600000000E-01    3.5981000000E+02
+    2.4800000000E-01    3.6047000000E+02
+    2.5000000000E-01    3.6113000000E+02
+    2.5200000000E-01    3.6178000000E+02
+    2.5400000000E-01    3.6243000000E+02
+    2.5600000000E-01    3.6307000000E+02
+    2.5800000000E-01    3.6372000000E+02
+    2.6000000000E-01    3.6435000000E+02
+    2.6200000000E-01    3.6499000000E+02
+    2.6400000000E-01    3.6562000000E+02
+    2.6600000000E-01    3.6625000000E+02
+    2.6800000000E-01    3.6687000000E+02
+    2.7000000000E-01    3.6749000000E+02
+    2.7200000000E-01    3.6810000000E+02
+    2.7400000000E-01    3.6872000000E+02
+    2.7600000000E-01    3.6933000000E+02
+    2.7800000000E-01    3.6993000000E+02
+    2.8000000000E-01    3.7054000000E+02
+    2.8200000000E-01    3.7114000000E+02
+    2.8400000000E-01    3.7173000000E+02
+    2.8600000000E-01    3.7232000000E+02
+    2.8800000000E-01    3.7291000000E+02
+    2.9000000000E-01    3.7350000000E+02
+    2.9200000000E-01    3.7408000000E+02
+    2.9400000000E-01    3.7467000000E+02
+    2.9600000000E-01    3.7524000000E+02
+    2.9800000000E-01    3.7582000000E+02
+    3.0000000000E-01    3.7639000000E+02
+    3.0200000000E-01    3.7696000000E+02
+    3.0400000000E-01    3.7753000000E+02
+    3.0600000000E-01    3.7809000000E+02
+    3.0800000000E-01    3.7865000000E+02
+    3.1000000000E-01    3.7921000000E+02
+    3.1200000000E-01    3.7976000000E+02
+    3.1400000000E-01    3.8031000000E+02
+    3.1600000000E-01    3.8086000000E+02
+    3.1800000000E-01    3.8141000000E+02
+    3.2000000000E-01    3.8195000000E+02
+    3.2200000000E-01    3.8250000000E+02
+    3.2400000000E-01    3.8304000000E+02
+    3.2600000000E-01    3.8357000000E+02
+    3.2800000000E-01    3.8411000000E+02
+    3.3000000000E-01    3.8464000000E+02
+    3.3200000000E-01    3.8517000000E+02
+    3.3400000000E-01    3.8569000000E+02
+    3.3600000000E-01    3.8622000000E+02
+    3.3800000000E-01    3.8674000000E+02
+    3.4000000000E-01    3.8726000000E+02
+    3.4200000000E-01    3.8778000000E+02
+    3.4400000000E-01    3.8829000000E+02
+    3.4600000000E-01    3.8881000000E+02
+    3.4800000000E-01    3.8932000000E+02
+    3.5000000000E-01    3.8982000000E+02
+    3.5200000000E-01    3.9033000000E+02
+    3.5400000000E-01    3.9083000000E+02
+    3.5600000000E-01    3.9134000000E+02
+    3.5800000000E-01    3.9184000000E+02
+    3.6000000000E-01    3.9233000000E+02
+    3.6200000000E-01    3.9283000000E+02
+    3.6400000000E-01    3.9332000000E+02
+    3.6600000000E-01    3.9381000000E+02
+    3.6800000000E-01    3.9430000000E+02
+    3.7000000000E-01    3.9479000000E+02
+    3.7200000000E-01    3.9527000000E+02
+    3.7400000000E-01    3.9576000000E+02
+    3.7600000000E-01    3.9624000000E+02
+    3.7800000000E-01    3.9672000000E+02
+    3.8000000000E-01    3.9720000000E+02
+    3.8200000000E-01    3.9767000000E+02
+    3.8400000000E-01    3.9814000000E+02
+    3.8600000000E-01    3.9862000000E+02
+    3.8800000000E-01    3.9909000000E+02
+    3.9000000000E-01    3.9955000000E+02
+    3.9200000000E-01    4.0002000000E+02
+    3.9400000000E-01    4.0048000000E+02
+    3.9600000000E-01    4.0095000000E+02
+    3.9800000000E-01    4.0141000000E+02
+    4.0000000000E-01    4.0187000000E+02
+    4.0200000000E-01    4.0232000000E+02
+    4.0400000000E-01    4.0278000000E+02
+    4.0600000000E-01    4.0323000000E+02
+    4.0800000000E-01    4.0368000000E+02
+    4.1000000000E-01    4.0414000000E+02
+    4.1200000000E-01    4.0458000000E+02
+    4.1400000000E-01    4.0503000000E+02
+    4.1600000000E-01    4.0548000000E+02
+    4.1800000000E-01    4.0592000000E+02
+    4.2000000000E-01    4.0636000000E+02
+    4.2200000000E-01    4.0680000000E+02
+    4.2400000000E-01    4.0724000000E+02
+    4.2600000000E-01    4.0768000000E+02
+    4.2800000000E-01    4.0812000000E+02
+    4.3000000000E-01    4.0855000000E+02
+    4.3200000000E-01    4.0898000000E+02
+    4.3400000000E-01    4.0941000000E+02
+    4.3600000000E-01    4.0984000000E+02
+    4.3800000000E-01    4.1027000000E+02
+    4.4000000000E-01    4.1070000000E+02
+    4.4200000000E-01    4.1112000000E+02
+    4.4400000000E-01    4.1155000000E+02
+    4.4600000000E-01    4.1197000000E+02
+    4.4800000000E-01    4.1239000000E+02
+    4.5000000000E-01    4.1281000000E+02
+    4.5200000000E-01    4.1323000000E+02
+    4.5400000000E-01    4.1364000000E+02
+    4.5600000000E-01    4.1406000000E+02
+    4.5800000000E-01    4.1447000000E+02
+    4.6000000000E-01    4.1488000000E+02
+    4.6200000000E-01    4.1530000000E+02
+    4.6400000000E-01    4.1571000000E+02
+    4.6600000000E-01    4.1611000000E+02
+    4.6800000000E-01    4.1652000000E+02
+    4.7000000000E-01    4.1693000000E+02
+    4.7200000000E-01    4.1733000000E+02
+    4.7400000000E-01    4.1773000000E+02
+    4.7600000000E-01    4.1814000000E+02
+    4.7800000000E-01    4.1854000000E+02
+    4.8000000000E-01    4.1894000000E+02
+    4.8200000000E-01    4.1933000000E+02
+    4.8400000000E-01    4.1973000000E+02
+    4.8600000000E-01    4.2013000000E+02
+    4.8800000000E-01    4.2052000000E+02
+    4.9000000000E-01    4.2091000000E+02
+    4.9200000000E-01    4.2130000000E+02
+    4.9400000000E-01    4.2169000000E+02
+    4.9600000000E-01    4.2208000000E+02
+    4.9800000000E-01    4.2247000000E+02
+    5.0000000000E-01    4.2286000000E+02
+*DEFINE_CURVE
+$MOTION OF 10_die
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         3         0                                        
+$                 A1                  O1
+    0.0000000000E+00    0.0000000000E+00
+    9.0000077486E-04    0.0000000000E+00
+*DEFINE_CURVE
+$MOTION OF 10_binder
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         4         0                                        
+$                 A1                  O1
+    0.0000000000E+00    0.0000000000E+00
+    4.5000038743E-04    2.0000000000E+03
+    9.0000077486E-04    0.0000000000E+00
+*DEFINE_CURVE
+$MOTION OF 10_punch
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         5         0                                        
+$                 A1                  O1
+    0.0000000000E+00    0.0000000000E+00
+    1.0000000000E-03    5.0000000000E+03
+    2.7790950847E-03    5.0000000000E+03
+    3.7790950847E-03    0.0000000000E+00
+*DEFINE_CURVE
+$MOTION OF 10_die
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         6         0                                        
+$                 A1                  O1
+    0.0000000000E+00    0.0000000000E+00
+    3.7790950847E-03    0.0000000000E+00
+*DEFINE_CURVE
+$FORCE OF 10_binder
+$     LCID      SIDR      SCLA      SCLO      OFFA      OFFO    DATTYP
+         7         0                                        
+$                 A1                  O1
+    9.0000077486E-04    0.0000000000E+00
+    1.0790007749E-03    3.5000000000E+05
+    3.5850007749E-03    2.0000000000E+05
+    3.5850907749E-03    3.0000000000E+04
+    3.5851007749E-03    3.0000000000E+04
+    3.5852007749E-03    3.0000000000E+04
+    4.6790958595E-03    3.0000000000E+04
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$
+$                    (7) MODEL DATA
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*INCLUDE
+28.blk
+$
+*INCLUDE
+28.mod
+$
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+${{DYNAFORM-AUTOSETUP-CMPRS1->>>DO NOT MODIFY>>>
+$!"f,0!!3#u!!N0!"UIq):.%SO+92HA!!!*!!!<Kp8O`P"!!<-"!!E0""pdOe:..NKru_:DrVup$rW!-
+$'#XV3N:.tR/!!N9$!!3#u!.b(L%L<'IN3]%5X3AZg;c$"Pr;[(-:ROb=gH[t$!"?Y2#smoT\/p@id6I
+$O%!)ISt$J2':?pOXhn^:-@?p?d]f;!;u@R0jjn^:-@E'HJmf;!:*A3g!?C:nYPGX(Ol\/p>cAO-0mn^
+$:-@J3P-0lVY/EAjC\WY".GsKKoAj.g'ELqL31lFH_MFEBOZ\UVLM-H0HY1#crtL'WssbH>I7[r2K579
+$k'2KRf/Y($#)XdhbT5uDN[52'WssbRV>$6'WssbHB^Wl\/p@i+_j9R8IPYNLR(/E4UTf9TP?agIVQN;
+$PF+R*iHc3@(Mc8r[)dF)T:/!S*eioWLhf8$kpA+jXIMNA;7I[$o4pV$*eioW\=PqDH5*MP=_pA$WU\D
+$2@\>s'odF(+J%BG]SAZPSEbM.28E"k/Xqtq?45WhnQYrN^iHc3@7r`B2g\H;5]QBo5O2CQ<>fU\HHPE
+$VQiHh:a$J2%l4W83')_^"m#(`U8$J2%l4_ek"\k*;3.u0udO2CQ<>dnT9>%B_P:Q;8:$J2%l4T]OeqL
+$31lFH`XfHPEVQi<)\j5aqV=/u_(oH5*MPO`*KF[)dF)T;k-L-sVhMeSd_+cM(8tV5lgcO2CQ<$ueIWk
+$pA+js/\IMEBOZ\UF^@L)$EtM/[DKC>`Zbp-qnSF\/p@i;7Nbnf;!:J$>XTG=?3b0G.t.EL$MUG*f4i$
+$r2K579k(=kr+6kEE'R)UM*YP2YWpa7E'4QGE'Tr3+L#m"Ys8.B)rGU"lqt86L$Q!.+,0#X\GC/045Wh
+$nQYs)nRf/W]'lcKsD!1\pnZkCW!#dP25hl*`C:nYp5P?L1O2=J.5V%U*g!9>u5Q!;E@rXb\'WssbHF,
+$p7!%NA95g,ii[e'I)58:7jiHg`.5T;B4,R/h-58:7jiHhSF5\drRP8FG25PtKg`,S&R8IPYNLUKGF1F
+$h.!5RQ,<E'4Q;5>o!4L$S8K5[%\[hbT6@5I_bglVRq.5cXA&9k"[D5Q#+#*caOBIVQN;PINjT!#%205
+$Y;Fd.u+nN5<TA*UMreF5aqV=&\1-DodF(+??/<q-8>e-*4eB41HKSt5WQ3mG.sT[5=jaZ'X!435`%d7
+$jj53`5GW6]$J1bf5hXHW;ra^d5=jaZ'X"W[5Ufs!_Y#=i5Q!;V_fA"fkpA+jXLpd8odF(+eoF$tG.sR
+$e0>0T=rL$jRE^1KF<Xp^e]g!468)\dlE^4<#m<h,U^-C5EE'4O=F$R5VL$MUG^-=aff;!:.F$L#4**Q
+$l7^H_'^\/p>[F$Nhf[)dF)^HXjgf;!:RF$N^bV45CG^d%`QHWP8Rr2K579k(n&EBOZ\UM+^6Ui8I(f;
+$$,G;Rdd%lZmP:9K.eo@-,0gHPEVQiJM\Ao_m9akpF52Ui8I(f:-hHSAZPSEbN9R'WssbHE;0Q7#PmEq
+$l.CrL$MUG*kcV[lqt86L$QQ>4UTf9E6WGhP8FF'%P>O^Rf/W^h/bhChbT5uDSeW,rL"ksF$Sc^S&?GR
+$_E["*'Wst)F$PY"kPM7K_ETJSO2CPuF?o^Z@Db;DY".Gs*-=I#q0m(kFMg>=E'4Q[.s+%/^ri?>[_k>
+$]UMr@'4*3_<LDJRgpVT4u8)\b.8p!>I9k"Z93Q+-2>`Zbp=EHfT'WssbHGi%DE'4Q[B66B`g\H;5]Ym
+$&4Af>i75g,ii[e'I95:Kiu_Y&S(5]^V$m<h.;5Q!;fPB9&/0ARlXJ]0i:$J2%lTl`Q;odF(+_Snb+;7
+$I[$YB3$E]QB>S"NEZprL$<lF?gIk^ri?>`]oO$odF(gF?mE/$j%r7`]o1C;7I\#F?j:H=?3b0`]kQ!l
+$VY1SF?g2bUMr@'a$3gi_Y#>LF?m.&n#+/ua$6$kR2Q*K5[%\[hbT6P5C4*I8)Xr#5QWHk(>7!R5PtLk
+$*-FNHn^:-@&BI(ilVY/5.<RmR\/p@i;91u)8)\b.2K_:]IVQN;PK5t8'Wssb6?PPf7CMgdeAsjFiHc3
+$@:N\op$j%r7(<JeN*eioW>]i=&dS40^=NNcV>`ZbpBQZS/r0[c25<TA*UN$6UIm?>.jj54+aZoJI>`Z
+$aQF[51<0aOj#b!3%!iHc2uF[2)VHp9Jpb!-6bUMrAbF[.soaEG:ib!-6bUMrAnF[4o3'Wssbb!-6bUM
+$rB%F[1dL@-,`Zb<H?cUMrB1F[.YeX;kDSb<N."iHc3\F[4X*pJ^+Kb<P\K>`ZbPFZ;X;Ps^IGkK?(Q$
+$J2%liH7C7>`Zbp.*Oo0lVY/5m<(\A,2;pBC<Sn^4UTf9piSiIkpA+jXNWp,!(mB;5U!@PBT_]+5EE\S
+$-sR:+5fn2`T,KB-59GUF;7INf5]Jpof;!<05>o!4L$L%.5T']*%P>!25:Kiu_Y#U+5f(U:7CMg45PtL
+$34E`u'OmRN\29nG<UMr@'7s7-/=?3b0G0W<M\/p@i;0G47*eioW\B[=`rQIT5G!KHscm%6?c9LYm\/p
+$?:G!H>7**Ql7cT_cgUMrA:G!N9PBT_\0cT`j`O2CR;G!K.i[)dF)cTgbn\/p?ZG!Pp);U@Y28)\b.P'
+$0)ij/&6`+OE=eY".GsS9@/r`_/7I6-qiC'WssbVKP6&WU\D2@aI>nlVY/5Z$&B/NL+MqK?ujL;7I[$]
+$66H8E'4Q[UX25orL#.SG!Ph$j/&6`cp+=F4UTfeG!J_[M*YP2cp(F<*eiq5G!M]=0ARlXd6IO//*(k=
+$o_m9akpFeB;Rdd%lg8j\8E"k/Y"-l(Ui8I(fCsGRSAZPSEbNibRf/Y(!I$fuVoD@gM:"QS;7I[$$[4j
+$(MeqSRWR3rhH5*MP'mDp1DA%T;b0`G#'Wssb*d9m9;7I[$ld7q:4UTf9.!Ip@2.!jc%+7?If;!:J13Z
+$!I(^*kL/^cjSiHc3@4*NsQql0,6:!u7[lVY/57<_!YhbT5uDULbeodF(+$;Pe1O2CQ<>`[;tquB&cG<
+$k2bS&?GRdQc]:'Wsr7G<e*D6"&g$dQ\h-lVY0,G<h(&kPM7KdQaOH4UTe^G<k%]NL+Mqdm&QP;7IZqG
+$<l$]6.8%*f;!:JL3Gn<(>7"-;q!sl_Y#<^O*<kDq0m(kFONGgY".GsR!1eKh'<2UQ.%r\$J2%lTm&bS
+$^ri?>[aRJ=Am23Y5hDcM4UTfi5EE\S-sX*&5V%U*g!9?@5?s8dodIIs5_!O]FH[Qk5:Kiu_Y(ik5grG
+$:&6LsB5P?L1O2B.c5US8lX;kEn5K!.B>`[H[5^O3J8)\dD5Q!;Ehfh?3pJ^+KS('\#!.X3V5U5%ZIVQ
+$OF5B/gnf;%hZ5^0r7)DBpr5DAE#\/tHi5g,ii[e'II5P?L1O2:pB5Tb^G;7I[t576#;E'4PQ5]^V$m<
+$h.K59GUF;7I6`5fZMVM*YP"5M)ZL4UN-Q5T;B4,R/hM5O;7W*ebh`5]79f^riA$5GW6]$J/0+GX01>-
+$sVhMeN[<"_Y#<6GX*(ucM(8teNXbN8)\bVGX-#VFH[OEej".;$J2%@GX0!8)DBnleitTgO2CQ`GX)mo
+$^ri?>ej"lS;7IZIGX2.<J(?i<lVY/5?$JWG8IPYNLXn]KH5*MPAU$HM/[Cr9Vq+)kH5*MPD0S<T&6Ls
+$"aOWR=$J2%lFa-0[oDR0`l./'^$J2%lI<\!af;!:J$J.N$H5*MPKm5jh\k*;3/([#EH5*MPNHd^oSaW
+$Jr9@lC^lVY/5Q$>OuJX&T\C_G>a.9qqNopg7l>%B_P:Q<sjc2GjiUj,/-8)\b.Y1GmX4UTf9XEZu3.u
+$+nncIY:j*eioW[!4i:%P=uWn(0d/O2CQ<]Qc]An^:-@&D04CE'4Q[_g"HGe9L4)1"\_W;7I[$bBQ9M\
+$/p@i;:n,21J?2A5c1$h+L#n=59GUF;7P>)5l,qE]QB@i576#;E'<3*5Ybc"=?3b@5>o!4L$RuJ5b^]U
+$oDR1k5<TA*UN#aJ5kZU2O2CSB5L'/N.en6R8dkbOLDJQ-\/p@i;#kl,T'rSs9/kNg8E"k/Xp95;o$U6
+$A&6RUMr%eusGsFj-oDR0`fg!CI-sVfKGsIhrR=EmS;Rdd%lQ(79mX.5V?FnfSL$MUG*[Q(s6=Ap%,2:
+$d8'WssbH7X>,Q:$RHkPNps8E"k/Xtt>gkpA+jX;oqYHPEVQiAu6L4UTf9E';o>$J2%l4[OEZOmRN\2.
+$#!$iHc3@7nItkjj54+q0q$^'WssbH;JlP3OHkN^7R175=jaZ'WtM_5`M+J&qe!R59GUF;7KqX5iI#'Y
+$".I)5P?L1O2>IR5W)lZ8IP[T5L'/N4)B1-M*YP2cm%4/Ui8I(f5l4&h'<2UPsa:jHPEVQiHfc70aOj#
+$>%HAP;Rdd%l[a=HL$MUG*ei?5c2GjYLj;8=cM(8tV;"4*iHc3@O*NuBZCUH^`nN_qodF(+Q?b`HPs^I
+$GkM&3a$J2%lSU!KNGj-P0#i%YS*eioWUj53S>`Zbp.,7&b1E3B?5^bjS?Fi_`5>o!4L$Q!h5g^e1q0m
+$)65L'/N,Ii"a,mJpc6]9_alqt86KthmuH0HY1#cufG$J2%l4iVb4c2>dpgcm5mO2CS6GsEOWEbLU&gc
+$n?gH5*O2GsHM9(^*kLh*27uUMrBMGsKJp^7Q;sh*3>nO2CSJGsEBRA38[Eh*:7'\/p@eGsH@4$J2%lh
+$*8&4iHc4+GsK=kY]=E>h*90_b^]815T']*%P>!B5EE\S-sZXp5],]]WU\Em5P?L1O2:pD5f(U:7CMgD
+$5I_bglVRq65SU@kiHc3p5C4*I8)Xr(5\Q;IHp9LF5N-o&Y"'4Q5eM3&(^*mr5=jaZ'WrC$5S.$X[)dF
+$I576#;E'5Ck5\)t6:Q:^t5B/gnf;!+0H9et]L$MUGhETVeE'4O]H9_l?.u+nnhETtF'Wsq`H9bm"cm%
+$6?hEOQiH5*MDH9ejYG.sReh`n86iHc2)H9_b;**Ql7h`nUlL$MT,H9b_r_Y#<^h`o$O-sVg.H9e]TBT
+$_\0h`oBabU6A95Qk*t/[Cr)5M)ZL4UPD>5Zg%RaEG;T5N-o&Y")oH5cbr/A39hK#X@ZQ\/p?:H9h?-$
+$/e&A-sVhMD0eJA!!3EkRf/W]nU<`C4UTf9E6UWE!!sK-_9/H?[e'M`qZ$s%5Lk#C-8>c/5jA=L5l1N^
+$n3>q5!Ur>L!;g@0p-/WX!!!3%!!s,eZCUH^l9>9!rr<<0!5+8lP,t".mf3UI9,aRJ<4P6`!!h7O)P_F
+$S\Ng#m!!3#u!.b(L'*nTNN3%rJOH#D'#A.mpD/!m#$Mj`.#^($,Bln0&AGH3*"8i-!!r`0("`SU%@q[
+$"N!"&-ZWObSX=3W82f`28V\jnY[bq$U0!!!2s!!%QH!!0l"irB-;5Qguc"9W1KAJ"/-!V!kE!!!2s!!
+$%QH!!0l"irB-;5Qq&d#6nXODId=!5jJCVn3<DBHXq3Jm(_3R#Fh`?A96;f^]+96"nqusJGT<I^d$iZ$
+$T(*Lr2K579k$p`!rDs'#@hRgF(oN)"8`&u!r2fr"9&9#!W;uu"TAB$!qcNp5bC==!!E<&!<<9%!!!-#
+$!!&JcR/uhBrr<$&q#C[*A9)+&Bl7PcqZ$TtrVup"o`,&LZU"Eg!!E3#!!3#u!!N9$!!E#s")8*-#jqZ
+$t1MXWr5'A;<r;[5@>STPdK+_eMrae=l!"*HH6%&`t[gN.H5PtKg9\hr@\b?gMs(+Fm!")EU5_JL[`C9
+$f<5PtKg9\hr=[GT\pP&NY`!")EU5^O3J8)\c95PtK_9\hu6!!E<&!<<3#!!!-#!!&JcR/uhBrr<$+rV
+$up"rVurtrr;iq!q8GRrr;iq!XM$ln,N`;K+7JG+gerdrVup"rVup"q>^Mar0[Vs56Cfa!!3'!!!Moo!
+$Y@TtrVup!q>^KrrVup%rVup"qu?^Fp](@05Q^ob!!Dur!q8DToDep]5PkE]i4nj`$1L0+'WssbHA"N]
+$s8;ot!U]pm5`E*q*Np2GrVup5n,NL)5N;_E1dLp<!BrdG!!+?1h#IKF5PY9aHPEVQiHg/AJ,fQL
+$}}DYNAFORM-AUTOSETUP
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+*END

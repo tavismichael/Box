@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes"?>
+<SystemSet>
+ <!--材料参数-->
+<material ShortCaption="AOPT" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="SPI" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="E0" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="LCID" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="R90" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="R45" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="R00" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="M" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="P2" szCaption="n值" dDownStep="0.20" dUpStep="0.30"  bIsReverse="是"/>
+<material ShortCaption="P1" szCaption="K值" dDownStep="400.3" dUpStep="501.2"  bIsReverse="是"/>
+<material ShortCaption="HR" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="PR" szCaption="泊松比" dDownStep="0.10" dUpStep="0.30"  bIsReverse="是"/>
+<material ShortCaption="E" szCaption="弹性模量" dDownStep="1.070E+05" dUpStep="4.080E+05"  bIsReverse="是"/>
+<material ShortCaption="RO" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+<material ShortCaption="MID" szCaption="" dDownStep="1" dUpStep="1"  bIsReverse="否"/>
+</SystemSet>
